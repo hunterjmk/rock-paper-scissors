@@ -43,37 +43,40 @@ function getHumanChoice() {
     return choice;
 }
 
-// let humanScore = 0;
-// let computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
-// // Play function
+// Play function
 
-// function playRound(humanSelection, compSelection) {
-//     if (humanSelection === compSelection) {
-//         console.log('It is a draw');
-//     } 
-//     else if (humanSelection === 'Rock' && compSelection === 'Scissors') {
-//         console.log('You win!');
-//     } 
-//     else if (humanSelection === 'Paper' && compSelection === 'Rock') {
-//         console.log('You win!');
-//     }
-//     else if (humanSelection === 'Scissors' && compSelection === 'Paper') {
-//         console.log("You win");
-//     }
-//     else if (humanSelection === 'Scissors' && compSelection === 'Rock') {
-//         console.log('Computer wins');
-//     } 
-//     else if (humanSelection === 'Rock' && compSelection === 'Paper') {
-//         console.log('Computer wins!');
-//     }
-//     else if (humanSelection === 'Paper' && compSelection === 'Scissors') {
-//         console.log('Computer wins!');
-//     }
+function playRound(humanSelection, compSelection) {
+    if (humanSelection === compSelection) {
+        console.log('It is a draw');
+    } 
+    else if (humanSelection === 'Rock' && compSelection === 'Scissors') {
+        console.log('You win!');
+    } 
+    else if (humanSelection === 'Paper' && compSelection === 'Rock') {
+        console.log('You win!');
+    }
+    else if (humanSelection === 'Scissors' && compSelection === 'Paper') {
+        console.log("You win");
+    }
+    else if (humanSelection === 'Scissors' && compSelection === 'Rock') {
+        console.log('Computer wins');
+    } 
+    else if (humanSelection === 'Rock' && compSelection === 'Paper') {
+        console.log('Computer wins!');
+    }
+    else if (humanSelection === 'Paper' && compSelection === 'Scissors') {
+        console.log('Computer wins!');
+    }
+    else return;
     
-// }
+}
 
-// const humanChoice = getHumanChoice();
-// const computerChoice = getComputerChoice();
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+playRound(humanChoice, computerChoice);
 
 
