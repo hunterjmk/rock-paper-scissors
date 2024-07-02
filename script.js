@@ -1,3 +1,34 @@
+function playGame() {
+
+    // play five rounds
+    const rounds = 5;
+
+    for (i = 0; i < rounds; i++) {
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+
+        playRound(humanChoice, computerChoice);
+    }
+
+    // Total Tally
+
+    if (humanScore == computerScore) {
+        console.log(`Human: ${humanScore}`);
+        console.log(`Computer: ${computerScore}`);
+        console.log('It is a draw!');
+    }
+    else if (humanScore > computerScore) {
+        console.log(`Human: ${humanScore}`);
+        console.log(`Computer: ${computerScore}`);
+        console.log('Congratulations, you won!');
+    }
+    else {
+        console.log(`Human: ${humanScore}`);
+        console.log(`Computer: ${computerScore}`);
+        console.log('You lost! Better luck next time.');
+    }
+}
+
 // computer choice
 
 function getComputerChoice() {
@@ -76,14 +107,10 @@ function playRound(humanSelection, compSelection) {
         console.log('Computer wins!');
         computerScore++;
     }
-    else return;
-    
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
 
-playRound(humanChoice, computerChoice);
-console.log(humanScore, computerScore);
+
+playGame();
 
 
