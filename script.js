@@ -21,27 +21,27 @@ function getComputerChoice() {
     return choice;
 }
 
-// // Human choice
+// Human choice
 
-// function getHumanChoice() {
-//     // User input
-//     let input = prompt('Choose: 1. Rock, 2. Paper or 3. Scissors');
+function getHumanChoice() {
+    // User input
+    let input = prompt('Choose: 1. Rock, 2. Paper or 3. Scissors');
     
-//     // Log
-//     let choice;
-//     if (parseInt(input) == 1) {
-//         choice = 'Rock';
-//         console.log('Rock');
-//     } else if (parseInt(input) == 2) {
-//         choice = 'Paper';
-//         console.log('Paper');
-//     } else {
-//         choice = 'Scissors';
-//         console.log('Scissors');
-//     }
+    // Log
+    let choice;
+    if (parseInt(input) == 1) {
+        choice = 'Rock';
+        console.log('Rock');
+    } else if (parseInt(input) == 2) {
+        choice = 'Paper';
+        console.log('Paper');
+    } else {
+        choice = 'Scissors';
+        console.log('Scissors');
+    }
 
-//     return choice;
-// }
+    return choice;
+}
 
 // let humanScore = 0;
 // let computerScore = 0;
