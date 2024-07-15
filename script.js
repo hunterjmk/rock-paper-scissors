@@ -1,33 +1,18 @@
-function playGame() {
 
-    // play five rounds
-    const rounds = 5;
+// function playGame() {
 
-    for (i = 0; i < rounds; i++) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
+//     // play five rounds
+//     const rounds = 5;
 
-        playRound(humanChoice, computerChoice);
-    }
+//     for (i = 0; i < rounds; i++) {
+//         const humanChoice = getHumanChoice();
+//         const computerChoice = getComputerChoice();
 
-    // Total Tally
+//         playRound(humanChoice, computerChoice);
+//     }
 
-    if (humanScore == computerScore) {
-        console.log(`Human: ${humanScore}`);
-        console.log(`Computer: ${computerScore}`);
-        console.log('It is a draw!');
-    }
-    else if (humanScore > computerScore) {
-        console.log(`Human: ${humanScore}`);
-        console.log(`Computer: ${computerScore}`);
-        console.log('Congratulations, you won!');
-    }
-    else {
-        console.log(`Human: ${humanScore}`);
-        console.log(`Computer: ${computerScore}`);
-        console.log('You lost! Better luck next time.');
-    }
-}
+
+
 
 // computer choice
 
@@ -54,25 +39,25 @@ function getComputerChoice() {
 
 // Human choice
 
-function getHumanChoice() {
-    // User input
-    let input = prompt('Choose: 1. Rock, 2. Paper or 3. Scissors');
+// function getHumanChoice() {
+//     // User input
+//     let input = prompt('Choose: 1. Rock, 2. Paper or 3. Scissors');
     
-    // Log
-    let choice;
-    if (parseInt(input) == 1) {
-        choice = 'Rock';
-        console.log('Rock');
-    } else if (parseInt(input) == 2) {
-        choice = 'Paper';
-        console.log('Paper');
-    } else {
-        choice = 'Scissors';
-        console.log('Scissors');
-    }
+//     // Log
+//     let choice;
+//     if (parseInt(input) == 1) {
+//         choice = 'Rock';
+//         console.log('Rock');
+//     } else if (parseInt(input) == 2) {
+//         choice = 'Paper';
+//         console.log('Paper');
+//     } else {
+//         choice = 'Scissors';
+//         console.log('Scissors');
+//     }
 
-    return choice;
-}
+//     return choice;
+// }
 
 let humanScore = 0;
 let computerScore = 0;
@@ -111,6 +96,55 @@ function playRound(humanSelection, compSelection) {
 
 
 
-playGame();
+// playGame();
 
+// Button event listeners
+
+let rockBtn = document.querySelector('#btn-one');
+let paperBtn = document.querySelector('#btn-two');
+let scissorsBtn = document.querySelector('#btn-three');
+
+rockBtn.addEventListener('click', () => {
+    const humanChoice = 'Rock';
+    console.log(humanChoice);
+    const computerChoice = getComputerChoice();
+
+    playRound(humanChoice, computerChoice);
+});
+
+paperBtn.addEventListener('click', () => {
+    const humanChoice = 'Paper';
+    console.log(humanChoice);
+    const computerChoice = getComputerChoice();
+
+    playRound(humanChoice, computerChoice);
+});
+
+scissorsBtn.addEventListener('click', () => {
+    const humanChoice = 'Scissors';
+    console.log(humanChoice);
+    const computerChoice = getComputerChoice();
+
+    playRound(humanChoice, computerChoice);
+});
+
+
+
+// Total Tally
+
+if (humanScore == computerScore) {
+    console.log(`Human: ${humanScore}`);
+    console.log(`Computer: ${computerScore}`);
+    console.log('It is a draw!');
+}
+else if (humanScore > computerScore) {
+    console.log(`Human: ${humanScore}`);
+    console.log(`Computer: ${computerScore}`);
+    console.log('Congratulations, you won!');
+}
+else {
+    console.log(`Human: ${humanScore}`);
+    console.log(`Computer: ${computerScore}`);
+    console.log('You lost! Better luck next time.');
+}
 
