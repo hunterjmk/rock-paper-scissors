@@ -62,34 +62,53 @@ function getComputerChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-// Play function
+// Play function`
+const scoreDiv = document.querySelector('#score');
+const scoreSpan = document.createElement('div');
+const compSpan = document.createElement('div');
+
+scoreDiv.append(compSpan, scoreSpan);
 
 function playRound(humanSelection, compSelection) {
     if (humanSelection === compSelection) {
         console.log('It is a draw');
+        compSpan.textContent = 'Comp chooses ' + compSelection;
+        scoreSpan.textContent = 'It is a draw';
     } 
     else if (humanSelection === 'Rock' && compSelection === 'Scissors') {
         console.log('You win!');
+        compSpan.textContent = 'Comp chooses ' + compSelection;
+        scoreSpan.textContent = 'You win!';
         humanScore++;
     } 
     else if (humanSelection === 'Paper' && compSelection === 'Rock') {
         console.log('You win!');
+        compSpan.textContent = 'Comp chooses ' + compSelection;
+        scoreSpan.textContent = 'You win!';
         humanScore++;
     }
     else if (humanSelection === 'Scissors' && compSelection === 'Paper') {
         console.log("You win");
+        compSpan.textContent = 'Comp chooses ' + compSelection;
+        scoreSpan.textContent = 'You win!';
         humanScore++;
     }
     else if (humanSelection === 'Scissors' && compSelection === 'Rock') {
         console.log('Computer wins');
+        compSpan.textContent = 'Comp chooses ' + compSelection;
+        scoreSpan.textContent = 'Computer wins!';
         computerScore++;
     } 
     else if (humanSelection === 'Rock' && compSelection === 'Paper') {
         console.log('Computer wins!');
+        compSpan.textContent = 'Comp chooses ' + compSelection;
+        scoreSpan.textContent = 'Computer wins!';
         computerScore++;
     }
     else if (humanSelection === 'Paper' && compSelection === 'Scissors') {
         console.log('Computer wins!');
+        compSpan.textContent = 'Comp chooses ' + compSelection;
+        scoreSpan.textContent = 'Computer wins!';
         computerScore++;
     }
 }
@@ -106,7 +125,6 @@ let scissorsBtn = document.querySelector('#btn-three');
 
 rockBtn.addEventListener('click', () => {
     const humanChoice = 'Rock';
-    console.log(humanChoice);
     const computerChoice = getComputerChoice();
 
     playRound(humanChoice, computerChoice);
@@ -114,7 +132,6 @@ rockBtn.addEventListener('click', () => {
 
 paperBtn.addEventListener('click', () => {
     const humanChoice = 'Paper';
-    console.log(humanChoice);
     const computerChoice = getComputerChoice();
 
     playRound(humanChoice, computerChoice);
@@ -122,7 +139,6 @@ paperBtn.addEventListener('click', () => {
 
 scissorsBtn.addEventListener('click', () => {
     const humanChoice = 'Scissors';
-    console.log(humanChoice);
     const computerChoice = getComputerChoice();
 
     playRound(humanChoice, computerChoice);
