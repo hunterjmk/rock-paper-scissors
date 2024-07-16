@@ -73,6 +73,11 @@ const hDiv = document.querySelector('#h-score');
 const cSpan = document.createElement('span');
 const hSpan = document.createElement('span');
 
+const declaration = document.createElement('span');
+declaration.classList.add('declaration');
+
+scoreDiv.appendChild(declaration);
+
 scoreDiv.append(compSpan, scoreSpan);
 cDiv.append(cSpan);
 hDiv.append(hSpan);
@@ -80,69 +85,80 @@ hDiv.append(hSpan);
 function playRound(humanSelection, compSelection) {
     if (humanSelection === compSelection) {
         console.log('It is a draw');
-        compSpan.textContent = 'Comp chooses ' + compSelection;
+        compSpan.textContent = 'Computer chooses ' + compSelection;
         scoreSpan.textContent = 'It is a draw';
     } 
     else if (humanSelection === 'Rock' && compSelection === 'Scissors') {
         console.log('You win!');
-        compSpan.textContent = 'Comp chooses ' + compSelection;
+        compSpan.textContent = 'Computer chooses ' + compSelection;
         scoreSpan.textContent = 'You win!';
         humanScore++;
     } 
     else if (humanSelection === 'Paper' && compSelection === 'Rock') {
         console.log('You win!');
-        compSpan.textContent = 'Comp chooses ' + compSelection;
+        compSpan.textContent = 'Computer chooses ' + compSelection;
         scoreSpan.textContent = 'You win!';
         humanScore++;
     }
     else if (humanSelection === 'Scissors' && compSelection === 'Paper') {
         console.log("You win");
-        compSpan.textContent = 'Comp chooses ' + compSelection;
+        compSpan.textContent = 'Computer chooses ' + compSelection;
         scoreSpan.textContent = 'You win!';
         humanScore++;
     }
     else if (humanSelection === 'Scissors' && compSelection === 'Rock') {
         console.log('Computer wins');
-        compSpan.textContent = 'Comp chooses ' + compSelection;
+        compSpan.textContent = 'Computer chooses ' + compSelection;
         scoreSpan.textContent = 'Computer wins!';
         computerScore++;
     } 
     else if (humanSelection === 'Rock' && compSelection === 'Paper') {
         console.log('Computer wins!');
-        compSpan.textContent = 'Comp chooses ' + compSelection;
+        compSpan.textContent = 'Computer chooses ' + compSelection;
         scoreSpan.textContent = 'Computer wins!';
         computerScore++;
     }
     else if (humanSelection === 'Paper' && compSelection === 'Scissors') {
         console.log('Computer wins!');
-        compSpan.textContent = 'Comp chooses ' + compSelection;
+        compSpan.textContent = 'Computer chooses ' + compSelection;
         scoreSpan.textContent = 'Computer wins!';
         computerScore++;
     }
 
     cSpan.textContent = computerScore;
     hSpan.textContent = humanScore;
+    
+    if (humanScore == 5 || computerScore == 5) {
 
-    while (humanScore == 5 || computerScore == 5) {
-        if (humanScore == computerScore) {
-            console.log(`Human: ${humanScore}`);
-            console.log(`Computer: ${computerScore}`);
-            console.log('It is a draw!');
-        }
-        else if (humanScore > computerScore) {
+        if (humanScore > computerScore) {
             console.log(`Human: ${humanScore}`);
             console.log(`Computer: ${computerScore}`);
             console.log('Congratulations, you won!');
+
+            declaration.textContent = 'Hurray! You Win this round.';
         }
         else {
             console.log(`Human: ${humanScore}`);
             console.log(`Computer: ${computerScore}`);
             console.log('You lost! Better luck next time.');
-        }
 
-        computerScore = 0;
-        humanScore = 0;
+            declaration.textContent = 'Uh oh, you lose! Try again.';
+        }
+        setTimeout(timeOut, 1500);
+        
     }
+}
+
+function timeOut() {
+    computerScore = 0;
+    humanScore = 0;
+    cSpan.textContent = computerScore;
+    hSpan.textContent = humanScore;
+    declaration.textContent = "";
+    compSpan.textContent = '';
+    scoreSpan.classList.add('declaration');
+    scoreSpan.textContent = 'Start a new round!';
+
 }
 
 
