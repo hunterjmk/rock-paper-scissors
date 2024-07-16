@@ -67,7 +67,15 @@ const scoreDiv = document.querySelector('#score');
 const scoreSpan = document.createElement('div');
 const compSpan = document.createElement('div');
 
+const cDiv = document.querySelector('#c-score');
+const hDiv = document.querySelector('#h-score');
+
+const cSpan = document.createElement('span');
+const hSpan = document.createElement('span');
+
 scoreDiv.append(compSpan, scoreSpan);
+cDiv.append(cSpan);
+hDiv.append(hSpan);
 
 function playRound(humanSelection, compSelection) {
     if (humanSelection === compSelection) {
@@ -111,6 +119,30 @@ function playRound(humanSelection, compSelection) {
         scoreSpan.textContent = 'Computer wins!';
         computerScore++;
     }
+
+    cSpan.textContent = computerScore;
+    hSpan.textContent = humanScore;
+
+    while (humanScore == 5 || computerScore == 5) {
+        if (humanScore == computerScore) {
+            console.log(`Human: ${humanScore}`);
+            console.log(`Computer: ${computerScore}`);
+            console.log('It is a draw!');
+        }
+        else if (humanScore > computerScore) {
+            console.log(`Human: ${humanScore}`);
+            console.log(`Computer: ${computerScore}`);
+            console.log('Congratulations, you won!');
+        }
+        else {
+            console.log(`Human: ${humanScore}`);
+            console.log(`Computer: ${computerScore}`);
+            console.log('You lost! Better luck next time.');
+        }
+
+        computerScore = 0;
+        humanScore = 0;
+    }
 }
 
 
@@ -148,19 +180,19 @@ scissorsBtn.addEventListener('click', () => {
 
 // Total Tally
 
-if (humanScore == computerScore) {
-    console.log(`Human: ${humanScore}`);
-    console.log(`Computer: ${computerScore}`);
-    console.log('It is a draw!');
-}
-else if (humanScore > computerScore) {
-    console.log(`Human: ${humanScore}`);
-    console.log(`Computer: ${computerScore}`);
-    console.log('Congratulations, you won!');
-}
-else {
-    console.log(`Human: ${humanScore}`);
-    console.log(`Computer: ${computerScore}`);
-    console.log('You lost! Better luck next time.');
-}
+// if (humanScore == computerScore) {
+//     console.log(`Human: ${humanScore}`);
+//     console.log(`Computer: ${computerScore}`);
+//     console.log('It is a draw!');
+// }
+// else if (humanScore > computerScore) {
+//     console.log(`Human: ${humanScore}`);
+//     console.log(`Computer: ${computerScore}`);
+//     console.log('Congratulations, you won!');
+// }
+// else {
+//     console.log(`Human: ${humanScore}`);
+//     console.log(`Computer: ${computerScore}`);
+//     console.log('You lost! Better luck next time.');
+// }
 
